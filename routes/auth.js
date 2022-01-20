@@ -3,11 +3,12 @@ const express = require('express');
 const { 
     register,
     login,
+    logout,
     getMe,
     updateDetails,
     updatePassword,
     forgotPassword,
-    resetPassword 
+    resetPassword
 } = require('../controllers/auth');
 
 const router = express.Router();
@@ -19,6 +20,9 @@ router.route('/register')
 
 router.route('/login')
     .post(login);
+
+router.route('/logout')
+    .get(logout);
 
 router.route('/me')
     .get(protect, getMe);
